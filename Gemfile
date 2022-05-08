@@ -67,3 +67,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Devise for authentication
 gem 'devise'
+
+# cloudinary for remote image storage
+gem 'cloudinary', '~> 1.16.0'
