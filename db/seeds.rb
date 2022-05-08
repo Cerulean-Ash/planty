@@ -48,3 +48,5 @@ end
   titles.delete_at(0)
   descriptions.delete_at(0)
 end
+
+puts "Done! #{Plant.count} plants created!"
