@@ -1,5 +1,13 @@
 <div class="container">
   <div class="grid-container show_plants">
-
+    <div class="image-select-container">
+    </div>
+    <div class="carousel-container">
+      <%= render "plant_carousel", plant: @plant %>
+    </div>
+    <div class="details-card-container">
+      <%= render "details_card", plant: @plant %>
+    </div>
   </div>
+
 </div>
