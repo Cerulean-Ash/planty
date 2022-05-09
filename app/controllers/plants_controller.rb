@@ -42,9 +42,9 @@ class PlantsController < ApplicationController
       :price_per_clipping,
       :description,
       :number_of_clippings,
-      :photo,
       :color,
-      :care_type
+      :care_type,
+      photos: []
     )
   end
 
