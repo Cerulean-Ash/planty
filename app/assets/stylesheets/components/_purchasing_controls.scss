@@ -66,3 +66,18 @@
 .btn-primary:focus {
   background-color: #FF5A5F;
 }
+
+
+#form-number {
+  border: none;
+  pointer-events:none;
+  width: 40px;
+  text-align: end;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 120px;
+}

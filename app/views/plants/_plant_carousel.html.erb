@@ -6,12 +6,20 @@
   </div>
 
   <div class="carousel-inner" id='image-display-carousel'>
-    <% plant.photos.each_with_index do |photo, index| %>
-      <%= index == 0 ? '<div class="carousel-item active">'.html_safe : '<div class="carousel-item">'.html_safe  %>
-        <img src="<%= cl_image_path photo.key, height: 500, crop: :fill %>" class="d-block w-100" alt="...">
+    <% if plant.photos.attached? %>
+      <% plant.photos.each_with_index do |photo, index| %>
+        <%= index == 0 ? '<div class="carousel-item active">'.html_safe : '<div class="carousel-item">'.html_safe  %>
+          <img src="<%= cl_image_path photo.key, height: 500, crop: :fill %>" class="d-block w-100" alt="...">
+        </div>
+      <% end %>
+    <% else %>
+      <div class="carousel-item active">
+        <%= image_tag "plant1", class:"d-block w-100" %>
+      </div>
+      <div class="carousel-item">
+        <%= image_tag "plant2", class:"d-block w-100" %>
       </div>
     <% end %>
-
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>

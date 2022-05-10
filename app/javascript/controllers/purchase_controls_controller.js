@@ -5,8 +5,8 @@ export default class extends Controller {
 
   increment(event) {
     let offsetValue = Number(event.path[0].dataset.offset)
-    if ( (Number(this.counterTarget.innerText) > 1 && offsetValue == -1) || (Number(this.counterTarget.innerText) < 10 && offsetValue == 1) ) {
-      this.counterTarget.innerText = Number(this.counterTarget.innerText) + offsetValue
+    if ( (Number(this.counterTarget.value) > 1 && offsetValue == -1) || (Number(this.counterTarget.value) < 10 && offsetValue == 1) ) {
+      this.counterTarget.value = Number(this.counterTarget.value) + offsetValue
 
     }
   }
