@@ -1,2 +1,21 @@
 // Import page-specific CSS files here.
 @import "home";
+
+.sidebar {
+  height: 200px;
+  width: 150px;
+  position: fixed;
+  padding-top: 40px;
+  background-color: lightblue;
+  }
+
+  .sidebar div {
+  padding: 8px;
+  font-size: 24px;
+  display: block;
+  }
+
+  .body-text {
+  margin-left: 150px;
+  font-size: 18px;
+  }
