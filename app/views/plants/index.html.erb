@@ -1,11 +1,16 @@
 <div class="sidebar">
-<h2>Refine here</h2>
-
-<h2>test</h2>
-
+  <h3>Refine your search</h3>
 </div>
 
-<div class="body-text">
-<h1>Plants</h1>
- <p> hello </p>
-<div>
+<div class="mainpanel">
+  <% @plants.each do |plant| %>
+    <div class="card-product">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="card-product-infos">
+        <h2><%= plant.title %></h2>
+        <p><%= plant.description %></p>
+        <strong><%="£#{plant.price_per_clipping}/per clipping"%></p></strong><p>
+      </div>
+    </div>
+  <% end %>
+</div>

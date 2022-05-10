@@ -2,8 +2,7 @@
 @import "home";
 
 .sidebar {
-  height: 200px;
-  width: 150px;
+  width: 300px;
   position: fixed;
   padding-top: 40px;
   background-color: lightblue;
@@ -15,7 +14,8 @@
   display: block;
   }
 
-  .body-text {
-  margin-left: 150px;
+  .mainpanel {
+  padding-top: 40px;
+  margin-left: 350px;
   font-size: 18px;
   }
