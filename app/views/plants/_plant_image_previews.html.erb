@@ -1,7 +1,7 @@
 <div class="image-container">
   <% if plant.photos.attached? %>
     <% plant.photos.each do |photo| %>
-      <img src="<%= cl_image_path photo.key, height: 50, crop: :fill %>" alt="">
+      <img src="<%= cl_image_path photo.key, crop: :fill %>"class= "d-block w-100" alt="">
     <% end %>
   <% else %>
     <%= image_tag "plant1", class:"d-block w-100" %>

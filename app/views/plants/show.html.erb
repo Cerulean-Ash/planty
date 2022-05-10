@@ -1,12 +1,12 @@
 <div class="container">
-  <div class="grid-container show_plants">
-    <div class="image-select-container d-flex flex-column">
+  <div class="show-plants-grid">
+    <div class="show-plants-grid__image-container d-flex flex-column">
       <%= render "plant_image_previews", plant: @plant %>
     </div>
-    <div class="carousel-container">
+    <div class="show-plants-grid__carousel-container">
       <%= render "plant_carousel", plant: @plant %>
     </div>
-    <div class="details-card-container">
+    <div class="show-plants-grid__details-container">
       <%= render "details_card", plant: @plant %>
     </div>
   </div>
