@@ -1,6 +1,7 @@
 <div class="container">
   <div class="grid-container show_plants">
-    <div class="image-select-container">
+    <div class="image-select-container d-flex flex-column">
+      <%= render "plant_image_previews", plant: @plant %>
     </div>
     <div class="carousel-container">
       <%= render "plant_carousel", plant: @plant %>

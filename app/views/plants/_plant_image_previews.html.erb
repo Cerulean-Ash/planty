@@ -1,0 +1,5 @@
+<div class="image-container">
+  <% plant.photos.each do |photo| %>
+    <img src="<%= cl_image_path photo.key, height: 50, crop: :fill %>" alt="">
+  <% end %>
+</div>
