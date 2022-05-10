@@ -8,6 +8,7 @@
 puts "Clearing Database..."
 
 Plant.destroy_all
+User.destroy_all
 
 puts "Creating a new database..."
 
