@@ -1,1 +1,32 @@
 // Specific CSS for your home-page
+.grid__cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 64px;
+}
+
+#container__home {
+  margin-top: 6vh;
+  margin-bottom: 16vh;
+}
+
+.grid__cards {
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+}
+
+@media(max-width: 992px) {
+  .grid__cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(max-width: 768px) {
+  .grid__cards {
+    grid-template-columns: 1fr;
+  }
+}
