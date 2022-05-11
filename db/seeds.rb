@@ -12,7 +12,7 @@ User.destroy_all
 
 puts "Creating a new database..."
 
-# scraping a plants website for their top 10 plans and storing titles and descriptions in arrays
+# scraping a plants website for their top 10 plans and storing titles, descriptions and image urls in arrays
 url = "https://www.hedgesdirect.co.uk/acatalog/Top-Selling-Hedging-Plants.html"
 html_file = URI.open(url).read
 html_doc = Nokogiri::HTML(html_file)
@@ -25,6 +25,11 @@ end
 titles = []
 html_doc.search('.standardSearchText.details h2').each do |element|
   titles << element.text.strip
+end
+
+images = []
+html_doc.search('.std-product-details > .image a img').each do |element|
+  images << "https://www.hedgesdirect.co.uk/acatalog/#{element.attr('data-src')}"
 end
 
 # create two users so that we can link them with our plants
@@ -58,10 +63,15 @@ care_array = %w[Easy Medium Hard]
 
   plant = Plant.new(attributes)
   plant.user = users.sample
-  plant.save
+
+  # attaching photo to plant
+  file = URI.open(images[0])
+  plant.photos.attach(io: file, filename: 'plant.png', content_type: 'image/png')
+  plant.save!
 
   titles.delete_at(0)
   descriptions.delete_at(0)
+  images.delete_at(0)
 end
 
 puts "Done! #{Plant.count} plants and #{User.count} users created!"
