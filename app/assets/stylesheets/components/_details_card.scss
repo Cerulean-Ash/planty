@@ -1,0 +1,13 @@
+.details-card-body {
+  padding: 2rem;
+  box-shadow: $card_boxshadow;
+  background-color: $white;
+  .seller-details .seller {
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+  .plant-details h1 {
+    font-size: 2rem;
+    font-weight: lighter;
+  }
+}

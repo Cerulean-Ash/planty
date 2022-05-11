@@ -4,3 +4,23 @@
     <a class="btn btn-danger" href="#">Sign in</a>
   </div>
 </div>
+<div class="container" id="container__home">
+  <div class = "grid__cards">
+    <% @plants_samples.each do |plant| %>
+      <%= link_to plant_path(plant) do %>
+        <div class="card-trip">
+          <% url = plant.photos.attached? ? cl_image_path(plant.photos.first.key) : "plant1.jpg" %>
+          <%= image_tag(url) %>
+          <div class="card-trip-infos">
+          <div>
+            <h2><%= plant.title %></h2>
+            <p><%= "#{plant.description[0..18]}..." %></p>
+          </div>
+          <h2 class="card-trip-pricing"><%= "£#{plant.price_per_clipping}" %></h2>
+          <!--<img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />-->
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

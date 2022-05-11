@@ -1,0 +1,10 @@
+<div class="image-container">
+  <% if plant.photos.attached? %>
+    <% plant.photos.each do |photo| %>
+      <img src="<%= cl_image_path photo.key, crop: :fill %>"class= "d-block w-100" alt="">
+    <% end %>
+  <% else %>
+    <%= image_tag "plant1.jpg", class:"d-block w-100" %>
+    <%= image_tag "plant2.jpg", class:"d-block w-100" %>
+  <% end %>
+</div>
