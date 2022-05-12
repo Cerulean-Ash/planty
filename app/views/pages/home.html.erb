@@ -4,6 +4,9 @@
     <a class="btn btn-danger" href="#">Sign in</a>
   </div>
 </div>
+
+<%= link_to "View all plants", plants_path, class:"btn btn-danger"%>
+
 <div class="container" id="container__home">
   <div class = "grid__cards">
     <% @plants_samples.each do |plant| %>
