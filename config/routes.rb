@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   resources :plants do
     resources :purchases, only: [:new, :create]
   end
+  resources :purchases, only: [:show] do
+    resources :reviews, only: [:new, :create]
+  end
   resources :users
   resources :carts
 end
