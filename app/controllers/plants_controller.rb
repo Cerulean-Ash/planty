@@ -6,6 +6,7 @@ class PlantsController < ApplicationController
   end
 
   def show
+    @purchase = Purchase.new
   end
 
   def new

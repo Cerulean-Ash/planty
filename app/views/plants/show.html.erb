@@ -1,4 +1,10 @@
 <div class="container">
+  <%= button_to 'Add to Cart', plant_purchases_path(@plant) %>
+    <%= simple_form_for([@plant, @purchase]) do |f| %>
+    <%= f.input :quantity_purchased %>
+    <%= f.submit "Add plant", class: "btn btn-primary" %>
+  <% end %>
+  <%= button_to 'Add to Cart', plant_purchases_path(@plant) %>
   <div class="show-plants-grid">
     <div class="show-plants-grid__image-container d-flex flex-column">
       <%= render "plant_image_previews", plant: @plant %>
@@ -10,5 +16,4 @@
       <%= render "details_card", plant: @plant %>
     </div>
   </div>
-  <%= button_to 'Add to Cart', plant_purchases_path(@plant) %>
 </div>
