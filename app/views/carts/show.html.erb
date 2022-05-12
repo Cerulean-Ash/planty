@@ -1,6 +1,6 @@
 <% total = 0 %>
 <% @cart.purchases.each do |plant| %>
   <% total += plant.plant.price_per_clipping %>
-  <li>ID: <%= plant.plant.id %>. <%= plant.plant.title %> - £<%= plant.plant.price_per_clipping %></li>
+  <li>ID:<%= plant.plant.id %>. <%= plant.plant.title %> X <%= plant.quantity_purchased %> - £<%= plant.plant.price_per_clipping %></li>
 <% end %>
 <p>Total: £<%= total %></p>
