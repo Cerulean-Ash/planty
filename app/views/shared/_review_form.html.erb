@@ -1,6 +1,6 @@
-<h2>Leave a review</h2>
+<h2 class="text-center">Leave a review</h2>
 <%= simple_form_for [purchase, review] do |f| %>
 <%= f.input :comment %>
-<%= f.input :rating %>
+<%= f.input :rating, label: 'Rating (1-5)' , input_html: { min: '1', max: '5', step: '1' } %>
 <%= f.submit "Submit review" %>
 <% end %>
