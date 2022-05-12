@@ -1,8 +1,8 @@
 <div class="container">
-  <%= button_to 'Add to Cart', plant_purchases_path(@plant) %>
-    <%= simple_form_for([@plant, @purchase]) do |f| %>
-    <%= f.input :quantity_purchased %>
-    <%= f.submit "Add plant", class: "btn btn-primary" %>
+
+  <%= simple_form_for([@plant, @purchase]) do |f| %>
+  <%= f.input :quantity_purchased %>
+  <%= f.submit "Add plant", class: "btn btn-primary" %>
   <% end %>
   <%= button_to 'Add to Cart', plant_purchases_path(@plant) %>
   <div class="show-plants-grid">
