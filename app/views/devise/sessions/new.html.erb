@@ -1,6 +1,7 @@
 <div class="wrapper bg-white">
   <div class="h2 text-center">PLANTY</div>
-  <div class="h4 text-muted text-center pt-2">Enter your login details</div>
+
+<div class="h4 text-muted text-center pt-2">Enter your login details</div>
 
   <div class="container ml-4">
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -16,14 +17,11 @@
       </div>
 
       <div class="form-actions">
-        <%= f.button :submit, "Log in", class: "btn btn-primary" %>
+        <%= f.button :submit, "Log in" %>
       </div>
     <% end %>
-    <div class="container ml-4">
-      <%= render "devise/shared/links" %>
-    </div>
   </div>
 
-
+  <%= render "devise/shared/links" %>
 
 </div>
