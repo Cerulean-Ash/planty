@@ -8,8 +8,13 @@
   height: auto;
   position: fixed;
   padding: 24px;
-  background-color: lightblue;
+  background-color: $darkgreen;
+  color: white;
   }
+
+.sidebar p {
+  color: black;
+}
 
   .sidebar div {
   padding: 8px;
