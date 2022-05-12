@@ -1,7 +1,7 @@
 <section class="content" style="display: flex;">
   <div class="sidebar">
-    <h5>Refine your search</h5>
-    <h6>Location</h6>
+    <h2>Refine your search</h2>
+    <h3>Location</h3>
     <div class="card" style="width: 75%">
       <div class="card-body">
         <p style="font-size:10px">Map goes here</p>
@@ -12,7 +12,7 @@
     </div>
 
     <div class="mb-3">
-      <label for="TEST" class="form-label" >Plant name</label>
+      <label for="TEST" class="form-label"><h3>Plant name</h3></label>
       <select class="form-select" aria-label="Default select example" style="font-size:10px">
         <option selected>Open this select menu</option>
         <option value="1">One</option>
@@ -21,7 +21,7 @@
       </select>
     </div>
     <div class="mb-3">
-      <label for="TEST" class="form-label" >Colour</label>
+      <label for="TEST" class="form-label" ><h3>Colour</h3></label>
       <select class="form-select" aria-label="Default select example" style="font-size:10px">
         <option selected>Open this select menu</option>
         <option value="1">One</option>
@@ -30,7 +30,7 @@
       </select>
     </div>
     <div class="mb-3">
-      <label for="TEST" class="form-label" >Price</label>
+      <label for="TEST" class="form-label" ><h3>Price</h3></label>
       <input type="range" class="form-range" id="customRange1" >
     </div>
   </div>
@@ -45,7 +45,7 @@
           <div class="card-product-infos">
             <h2><%= plant.title %></h2>
             <p><%= plant.description %></p>
-            <strong><%="£#{plant.price_per_clipping}/per clipping"%></p></strong><p>
+            <h4><%="£#{plant.price_per_clipping}/per clipping"%></h4>
           </div>
         </div>
       <% end %>

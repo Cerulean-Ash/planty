@@ -7,7 +7,7 @@
 }
 
 #container__home {
-  margin-top: 6vh;
+  margin-top: 24px;
   margin-bottom: 16vh;
 }
 
@@ -29,4 +29,9 @@
   .grid__cards {
     grid-template-columns: 1fr;
   }
+}
+
+.row{
+  margin-top: 24px;
+  margin-left: 100px;
 }
