@@ -1,11 +1,16 @@
-// Import Google fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Poppins&display=swap');
 
-
 // Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: "Nunito", "Helvetica", "sans-serif";
+$body-font: "Poppins display";
+$headers-font: "LKaushan Script";
+
+
+// Headers to be in Roboto
+
+//Everything else in playfair display
+
+
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {

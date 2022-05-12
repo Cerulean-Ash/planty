@@ -11,3 +11,19 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+body {
+  background: $cream; // Using this variable
+  color: $darkgreen;
+}
+
+.btn {
+  background-color: $darkgreen !important;
+  color: $white;
+  border-radius: 16;
+}
+
+.h1 {
+  color: $darkgreen !important;
+  font-size: larger;
+}
