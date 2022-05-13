@@ -18,27 +18,14 @@
   <div class="form-container" data-controller='purchase-controls'>
     <div class="header">
       <div class="header-row">
-        <div class="big-bold" id="price" data-amount-cents="<%= plant.price_per_clipping %>">
+        <div class="big-bold" id="price" data-purchase-controls-target="price_per" data-costPer="<%= plant.price_per_clipping %>">
           £<%= plant.price_per_clipping %>
         </div>
         <div class="small-light"> / CUTTING</div>
       </div>
     </div>
-    <form action="">
-      <div class="flex-between">
-        Cuttings:
-        <div class="actions">
-          <a id="minus" data-action="purchase-controls#increment" class="btn round-bordered incrementer minus" data-offset="-1">-</a>
-          <div>
-            <input data-purchase-controls-target="counter" data-count="1" id='form-number' type="number" value='1'>
-          </div>
-          <a id="plus" data-action="purchase-controls#increment" class="btn round-bordered incrementer" data-offset="1">+</a>
-        </div>
-      </div>
+    <%= render "purchase_form", plant: @plant, purchase: @purchase %>
 
-      <input type="number" value="<%= plant.price_per_clipping %>" disabled class="form-control" id="price-input" name="price-cents">
-      <input type="submit" value="Pay <%= plant.price_per_clipping %>" data-purchase-controls-target="price" class="btn btn-primary" id="submit">
-    </form>
   </div>
 
 </div>
