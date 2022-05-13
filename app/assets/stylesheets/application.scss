@@ -25,5 +25,10 @@ body {
 
 .h1 {
   color: $darkgreen !important;
-  font-size: larger;
+  font-size: 30px;
+  font-family: $headers-font ;
+}
+
+.p {
+  font-family: $body-font;
 }
