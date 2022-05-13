@@ -18,13 +18,13 @@
   <div class="form-container" data-controller='purchase-controls'>
     <div class="header">
       <div class="header-row">
-        <div class="big-bold" id="price" data-amount-cents="<%= plant.price_per_clipping %>">
+        <div class="big-bold" id="price" data-purchase-controls-target="price_per" data-costPer="<%= plant.price_per_clipping %>">
           £<%= plant.price_per_clipping %>
         </div>
         <div class="small-light"> / CUTTING</div>
       </div>
     </div>
-    <%= render "purchase_form", plant: @plant %>
+    <%= render "purchase_form", plant: @plant, purchase: @purchase %>
 
   </div>
 

@@ -1,5 +1,5 @@
 
-      <%= simple_form_for([@plant, @purchase]) do |f| %>
+      <%= simple_form_for([plant, purchase]) do |f| %>
       <div class="flex-between">
         Cuttings:
         <div class="actions">
@@ -11,12 +11,8 @@
           <a id="plus" data-action="purchase-controls#increment" class="btn round-bordered incrementer" data-offset="1">+</a>
         </div>
       </div>
-      <%= f.submit "Pay #{plant.price_per_clipping}", class: "btn btn-primary", data_purchase_controls_target:"price" %>
+      <%= f.submit "Pay #{plant.price_per_clipping}", class: "btn btn-primary", data: { purchase_controls_target: 'price' } %>
       <% end %>
 
       <input type="number" value="<%= plant.price_per_clipping %>" disabled class="form-control" id="price-input" name="price-cents">
       <input type="submit" value="Pay <%= plant.price_per_clipping %>" data-purchase-controls-target="price" class="btn btn-primary" id="submit">
-      <%= simple_form_for([@plant, @purchase]) do |f| %>
-        <%= f.input :quantity_purchased %>
-        <%= f.submit "Pay #{plant.price_per_clipping}", class: "btn btn-primary", data_purchase_controls_target:"price" %>
-      <% end %>
