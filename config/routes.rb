@@ -11,4 +11,9 @@ Rails.application.routes.draw do
   end
   resources :users
   resources :carts
+
+  get '/checkout', to: 'carts#checkout'
+
+  resources :charges, only: [:new, :create]
+  get 'thanks', to: 'charges#thanks', as: 'thanks'
 end
