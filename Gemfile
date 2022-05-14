@@ -35,6 +35,7 @@ gem 'simple_form', github: 'heartcombo/simple_form'
 # Faker for seed of DB
 gem 'faker'
 gem 'dotenv-rails', groups: [:development, :test]
+gem "geocoder"
 
 group :development, :test do
   gem 'pry-byebug'
