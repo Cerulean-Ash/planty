@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   resources :carts
 
   get '/checkout', to: 'carts#checkout'
+
+  resources :charges, only: [:new, :create]
 end
