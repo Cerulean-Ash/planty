@@ -1,4 +1,6 @@
-<h2>Change your password</h2>
+<div class="wrapper bg-white">
+  <div class="h2 text-center">PLANTY</div>
+  <h2>Change your password</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
@@ -25,3 +27,5 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+</div>
