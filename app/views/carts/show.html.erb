@@ -4,3 +4,5 @@
   <li>ID:<%= plant.plant.id %>. <%= plant.plant.title %> X <%= plant.quantity_purchased %> - £<%= (plant.plant.price_per_clipping * plant.quantity_purchased).round(2) %></li>
 <% end %>
 <p>Total: £<%= total.round(2) %></p>
+
+<%= link_to 'checkout', new_charge_path, class:'btn btn-primary' %>
