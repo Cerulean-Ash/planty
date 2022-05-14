@@ -3,6 +3,12 @@ class PlantsController < ApplicationController
 
   def index
     @plants = Plant.all
+    @markers = User.all.geocoded.map do |user|
+      {
+        lat: user.latitude,
+        lng: user.longitude
+      }
+    end
   end
 
   def show
