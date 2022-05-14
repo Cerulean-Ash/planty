@@ -19,6 +19,10 @@
 
 }
 
+#row__home {
+  margin-bottom: 20px;
+}
+
 @media(max-width: 992px) {
   .grid__cards {
     grid-template-columns: 1fr 1fr;
