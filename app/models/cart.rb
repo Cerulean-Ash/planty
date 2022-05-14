@@ -15,4 +15,19 @@ class Cart < ApplicationRecord
     current_item
   end
 
+  def checkout
+    total = 0
+    purchases.each do |plant|
+      total += plant.plant.price_per_clipping * plant.quantity_purchased
+      total.round(2)
+    end
+  end
+
+  def total_cents
+    total = 0
+    purchases.each do |plant|
+      total += plant.plant.price_per_clipping * plant.quantity_purchased * 100
+    end
+    return total
+  end
 end

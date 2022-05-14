@@ -74,3 +74,7 @@ gem 'devise'
 
 # cloudinary for remote image storage
 gem 'cloudinary', '~> 1.16.0'
+
+
+# stripe gem to handle payments
+gem 'stripe'
