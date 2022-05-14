@@ -36,10 +36,10 @@ end
 
 # create two users so that we can link them with our plants
 first_user_hash = { first_name: "Alf", email: "test@test.test", address: "10 Downing St, London", password: "123456" }
-sleep(1)
 second_user_hash = { first_name: "Garfield", email: "test1@test.test", address: "138 Kingsland Rd, London", password: "654321" }
 
 user_one = User.create!(first_user_hash)
+sleep(1)
 user_two = User.create!(second_user_hash)
 
 users = [user_one, user_two]
