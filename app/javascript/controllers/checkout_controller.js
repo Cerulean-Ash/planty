@@ -4,17 +4,19 @@ export default class extends Controller {
   static targets = [ "counter", "price", "price_per" ]
 
   #updateNumbers = (count) => {
-    const cost = this.price_perTarget.dataset.costper * count
-    this.priceTarget.value = `Pay ${cost.toFixed(2)}`
+    const cost = this.price_perTarget.dataset.costper * count;
+    this.priceTarget.value = `Pay ${cost.toFixed(2)}`;
   }
 
   increment(event) {
-    let offsetValue = Number(event.path[0].dataset.offset)
+    let offsetValue = Number(event.path[0].dataset.offset);
     if ( (Number(this.counterTarget.value) > 1 && offsetValue == -1) || (Number(this.counterTarget.value) < 10 && offsetValue == 1) ) {
-      this.counterTarget.value = Number(this.counterTarget.value) + offsetValue
-      this.#updateNumbers(this.counterTarget.value)
+      this.counterTarget.value = Number(this.counterTarget.value) + offsetValue;
+      this.#updateNumbers(this.counterTarget.value);
     }
   }
+
+  stripe() {
 
   // This is your test publishable API key.
   const stripe = Stripe("pk_test_51KzGpqKXmRkLNCZGucYBrgRlPCHsn5te8QRWXRwbQaUlvDopiQvqs50f9r4xVlnFfQLKs8fxPRcGBXEpROE4j9kq00jvnIelaH");
@@ -130,4 +132,5 @@ export default class extends Controller {
       document.querySelector("#button-text").classList.remove("hidden");
     }
   }
+}
 };
