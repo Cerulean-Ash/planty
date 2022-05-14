@@ -1,8 +1,15 @@
-<% total = 0 %>
-<% @cart.purchases.each do |plant| %>
-  <% total += plant.plant.price_per_clipping * plant.quantity_purchased%>
-  <li>ID:<%= plant.plant.id %>. <%= plant.plant.title %> X <%= plant.quantity_purchased %> - £<%= (plant.plant.price_per_clipping * plant.quantity_purchased).round(2) %></li>
-<% end %>
-<p>Total: £<%= total.round(2) %></p>
+<div class="container mt-5">
+  <h1>Your cart</h1>
 
-<%= link_to 'checkout', new_charge_path, class:'btn btn-primary' %>
+
+  <% total = 0 %>
+  <% @cart.purchases.each do |plant| %>
+    <% total += plant.plant.price_per_clipping * plant.quantity_purchased%>
+    <li class="custom-bullet">ID:<%= plant.plant.id %>. <%= plant.plant.title %> X <%= plant.quantity_purchased %> - £<%= (plant.plant.price_per_clipping * plant.quantity_purchased).round(2) %></li>
+  <% end %>
+  <div class="container mt-2">
+    <h3>Total: £<%= total.round(2) %></h3>
+  </div>
+
+  <%= link_to 'checkout', new_charge_path, class:'btn btn-primary' %>
+</div>
