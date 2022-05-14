@@ -1,15 +1,18 @@
 <div class="container">
-  <h1>Hello <%=current_user.first_name%></h1>
-
-
-
-  <div>
-  <h2>Person details</h2>
-  <ul>
-  <li>current_user.first_name</li>
-  </ul>
+  <div class="user_grid">
+    <h1><strong>Hello <%=current_user.first_name%>!</strong></h1>
+    <h2>Welcome to your profile</h2>
   </div>
 
+  <div class="user_grid">
+    <h2>Personal details</h2>
+    <div>
+      <h3>Address:</h3>
+      <p><%=current_user.address%></li></p>
+    </div>
+  </div>
 
-
+  <div class="user_grid">
+    <h2>Your plant purchases</h2>
+  </div>
 </div>
