@@ -2,7 +2,7 @@
   <div class="container">
     <h1>Welcome to Planty</h1>
     <p>Find plant cuttings around your area</p>
-    <a class="btn" href="#">Sign in</a>
+    <%= link_to "Join our Community!", new_user_registration_path, class:"btn ui-btn-inline" %>
   </div>
 </div>
 
@@ -11,7 +11,7 @@
 <div class="container" id="container__home">
   <div class="d-flex justify-content-between" id="row__home">
 
-      <h3 id="quote">View popular plants</h3>
+      <h3 id="quote">Popular plants</h3>
 
 
       <%= link_to "View all plants", plants_path, class:"btn ui-btn-inline" %>
