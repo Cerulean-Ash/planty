@@ -51,9 +51,13 @@
       <% end %>
     <% end %>
   </div>
-</section>
 
-<div style="width: 100%; height:600px;"
-  data-controller="mapbox"
-  data-mapbox-markers-value="<%= @markers.to_json %>"
-  data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  <!-- some DIRTY design to position the map for the demo, will need to clean up later  -->
+  <div style="width: 100%">
+    <h2 class="text-center">Map of users</h2>
+    <div style="width: 100%; height:600px;"
+    data-controller="mapbox"
+    data-mapbox-markers-value="<%= @markers.to_json %>"
+    data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  </div>
+</section>
