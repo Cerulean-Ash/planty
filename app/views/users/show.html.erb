@@ -1,10 +1,15 @@
 <div class="container">
-  <div class="user_grid">
-    <h1><strong>Hello <%=current_user.first_name%>!</strong></h1>
-    <h2>Welcome to your profile</h2>
+  <div class="user_grid row justify-content-between">
+    <div class="col-4 ">
+      <h1><strong>Hello <%=current_user.first_name%>!</strong></h1>
+      <h2>Welcome to your profile</h2>
+    </div>
+    <div class="col-2" >
+        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "img-thumbnail rounded", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+    </div>
   </div>
 
-  <div class="user_grid">
+  <div class="user_grid row">
     <h2>Personal details</h2>
     <div>
       <h3>Address:</h3>
@@ -12,7 +17,10 @@
     </div>
   </div>
 
-  <div class="user_grid">
+  <div class="user_grid row">
     <h2>Your plant purchases</h2>
+      <% @purchases.each do |plant| %>
+        <li>ID:<%= plant.plant.id %>. <%= plant.plant.title %> X <%= plant.quantity_purchased %> - £<%= (plant.plant.price_per_clipping * plant.quantity_purchased).round(2) %></li>
+      <% end %>
   </div>
 </div>
