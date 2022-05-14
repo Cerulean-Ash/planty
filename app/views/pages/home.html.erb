@@ -6,16 +6,17 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col-sm-10 col-6">
-    <h3 id="quote">View popular plants</h3>
-  </div>
-  <div class="col-sm-2 col-6">
-    <%= link_to "View all plants", plants_path, class:"btn ui-btn-inline" %>
-  </div>
-</div>
+
 
 <div class="container" id="container__home">
+  <div class="d-flex justify-content-between" id="row__home">
+
+      <h3 id="quote">View popular plants</h3>
+
+
+      <%= link_to "View all plants", plants_path, class:"btn ui-btn-inline" %>
+
+  </div>
   <div class = "grid__cards">
     <% @plants_samples.each do |plant| %>
       <%= link_to plant_path(plant) do %>
