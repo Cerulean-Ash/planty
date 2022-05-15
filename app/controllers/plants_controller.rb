@@ -29,7 +29,6 @@ class PlantsController < ApplicationController
       flash[:notice] = "Plant created"
     else
       render :new
-      flash[:alert] = "Sorry, plant not created"
     end
   end
 
