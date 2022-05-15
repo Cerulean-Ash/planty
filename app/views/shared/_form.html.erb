@@ -1,10 +1,10 @@
 <%= simple_form_for(plant) do |f| %>
-  <%= f.input :title %>
+  <%= f.input :title, label: "Plant species" %>
   <%= f.input :price_per_clipping %>
   <%= f.input :description %>
   <%= f.input :number_of_clippings %>
   <%= f.input :color %>
-  <%= f.input :care_type %>
+  <%= f.input :care_type, collection: [['Easy', :easy], ['Medium', :medium], ['Hard', :hard]], selected: :easy %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.button :submit, "Confirm" %>
 <% end %>

@@ -26,6 +26,7 @@ class PlantsController < ApplicationController
     @plant.user = current_user
     if @plant.save
       redirect_to plant_path(@plant)
+      flash[:notice] = "Plant created"
     else
       render :new
     end
