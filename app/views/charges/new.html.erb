@@ -1,4 +1,13 @@
-<%= form_tag charges_path do %>
+<%= simple_form_for(@charge) do |f| %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :delivery_address %>
+  <%= f.input :additional_address %>
+  <%= f.input :phone_number %>
+  <%= f.button :submit, "Confirm" %>
+
+
+
   <article>
 
     <% if flash[:error].present? %>
@@ -13,6 +22,7 @@
 
   </article>
 <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+
   data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
   data-description="<%= @description %>"
   data-amount="<%= @amount %>"
