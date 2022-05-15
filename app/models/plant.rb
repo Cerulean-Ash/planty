@@ -1,4 +1,7 @@
 class Plant < ApplicationRecord
+  validates :title, :price_per_clipping, :description, :number_of_clippings, :color, :care_type, presence: true
+  validates :price_per_clipping, numericality: { greater_than_or_equal_to: 0.1 }
+  validates :number_of_clippings, numericality: { greater_than: 0 }
   belongs_to :user
   has_many_attached :photos
   has_many :purchases #, dependent: :destroy
