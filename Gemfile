@@ -36,6 +36,7 @@ gem 'simple_form', github: 'heartcombo/simple_form'
 gem 'faker'
 gem 'dotenv-rails', groups: [:development, :test]
 gem "geocoder"
+gem 'toastr-rails'
 
 group :development, :test do
   gem 'pry-byebug'
