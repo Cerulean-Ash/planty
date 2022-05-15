@@ -30,9 +30,10 @@ class UsersController < ApplicationController
     all_sales = Purchase.all
     sales = []
     all_sales.each do |purchase|
-      if purchase.plant.user_id == current_user
+      if purchase.plant.user_id == current_user.id
         sales << purchase
       end
     end
+    return sales
   end
 end

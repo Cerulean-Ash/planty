@@ -11,6 +11,8 @@ Plant.destroy_all
 Purchase.destroy_all
 Cart.destroy_all
 User.destroy_all
+Cart.destroy_all
+Charge.destroy_all
 
 puts "Creating a new database..."
 
