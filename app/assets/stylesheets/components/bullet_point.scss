@@ -1,9 +1,9 @@
 .custom-bullet {
   list-style-type: "🍀";
   display: list-item;
-}
 
-li::before {
-  content: '';
-  margin-left: 8px;
+  &::before {
+    content: '';
+    margin-left: 8px;
+    }
 }
