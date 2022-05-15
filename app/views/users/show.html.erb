@@ -21,6 +21,19 @@
     <h2>Your plant purchases</h2>
       <% @purchases.each do |plant| %>
         <li>ID:<%= plant.plant.id %>. <%= plant.plant.title %> X <%= plant.quantity_purchased %> - £<%= (plant.plant.price_per_clipping * plant.quantity_purchased).round(2) %></li>
+        <%= link_to 'Review', new_purchase_review_path(plant) %>
+      <% end %>
+  </div>
+  <div class="user_grid row">
+    <h2>My Listed plants</h2>
+      <% @listings.each do |plant| %>
+        <li>ID:<%= plant.id %>. <%= plant.title %> - £<%= plant.price_per_clipping %></li>
+      <% end %>
+  </div>
+    <div class="user_grid row">
+    <h2>Plants I've Sold</h2>
+      <% @sales.each do |plant| %>
+        <li>ID:<%= plant.plant.id %>. <%= plant.plant.title %> X <%= plant.quantity_purchased %> - £<%= (plant.plant.price_per_clipping * plant.quantity_purchased).round(2) %></li>
       <% end %>
   </div>
 </div>

@@ -24,7 +24,6 @@ class ChargesController < ApplicationController
     @charge.add_products(current_user)
     destroy_cart
     redirect_to thanks_path
-
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_charge_path
