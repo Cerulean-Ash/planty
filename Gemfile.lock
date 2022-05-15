@@ -282,7 +282,7 @@ DEPENDENCIES
   devise
   dotenv-rails
   faker
-  font-awesome-sass
+  font-awesome-sass (~> 6.1.1)
   geocoder
   jbuilder (~> 2.7)
   listen (~> 3.3)
