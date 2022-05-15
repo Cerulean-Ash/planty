@@ -19,7 +19,8 @@ class PurchasesController < ApplicationController
     if @purchase.save
       redirect_to cart_path
     else
-      render :new
+      redirect_to plant_path(plant)
+      # render :new
     end
   end
 
