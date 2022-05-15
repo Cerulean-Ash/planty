@@ -29,7 +29,7 @@ export default class extends Controller {
       customMarker.className = "marker"
       customMarker.style.backgroundImage = `url('${marker.image_url}')`
       customMarker.style.backgroundSize = "cover"
-      customMarker.style.width = "30px"
+      customMarker.style.width = "40px"
       customMarker.style.height = "30px"
 
       new mapboxgl.Marker(customMarker)
