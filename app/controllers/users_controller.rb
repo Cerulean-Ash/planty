@@ -4,6 +4,7 @@ class UsersController < ApplicationController
     @user = User.new
     @purchases = completed_orders
     @listing = my_listings
+    @other_listings = other_user_listings
     @sales = my_sales
   end
 
@@ -19,6 +20,10 @@ class UsersController < ApplicationController
 
   def my_listings
     @listings = Plant.where(user_id: current_user)
+  end
+
+  def other_user_listings
+    @listings = Plant.where(user_id: params[:id])
   end
 
   def my_sales
