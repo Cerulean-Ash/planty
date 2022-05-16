@@ -17,7 +17,7 @@ class PurchasesController < ApplicationController
     # @purchase.quantity_purchased = params[:quantity_purchased]
     @purchase.user = current_user
     if @purchase.save
-      redirect_to cart_path
+      redirect_to plant_path(plant)
     else
       redirect_to plant_path(plant)
       # render :new
