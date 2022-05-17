@@ -1,23 +1,8 @@
 // Import page-specific CSS files here.
 @import "home";
-@import "plants_show";
+//@import "plants_show";
 @import "sessions_new";
 
-.sidebar {
-  width: 400px;
-  height: auto;
-  position: fixed;
-  padding: 24px;
-  background-color: $darkgreen;
-  color: white;
-  }
-
-.sidebar p {
-  color: black;
+.column {
+  flex: 50%;
 }
-
-  .sidebar div {
-  padding: 8px;
-  font-size: 24px;
-  display: block;
-  }

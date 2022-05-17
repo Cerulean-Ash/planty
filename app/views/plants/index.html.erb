@@ -1,65 +1,26 @@
-<section class="content pb-8" style="display: flex;">
-  <div class="sidebar">
-    <h2>Refine your search</h2>
-    <h3>Location</h3>
-    <div class="card" style="width: 75%">
-      <div class="card-body">
-        <p style="font-size:10px">Map goes here</p>
-        <p style="font-size:10px">Map goes here</p>
-        <p style="font-size:10px">Map goes here</p>
-        <p style="font-size:10px">Map goes here</p>
-      </div>
-    </div>
-
-    <div class="mb-3">
-      <label for="TEST" class="form-label"><h3>Plant name</h3></label>
-      <select class="form-select" aria-label="Default select example" style="font-size:10px">
-        <option selected>Open this select menu</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-      </select>
-    </div>
-    <div class="mb-3">
-      <label for="TEST" class="form-label" ><h3>Colour</h3></label>
-      <select class="form-select" aria-label="Default select example" style="font-size:10px">
-        <option selected>Open this select menu</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-      </select>
-    </div>
-    <div class="mb-3">
-      <label for="TEST" class="form-label" ><h3>Price</h3></label>
-      <input type="range" class="form-range" id="customRange1" >
-    </div>
-  </div>
-
-  <div class="container">
+<div class="row">
+  <div class="column">
     <% @plants.each do |plant| %>
       <%= link_to plant_path(plant), class:"text-decoration-none" do %>
-        <div class="row">
-          <div class="card-product">
-            <% url = plant.photos.attached? ? cl_image_path(plant.photos.first.key) : "plant1.jpg" %>
-              <%= image_tag(url) %>
+        <div class="card-product">
+          <% url = plant.photos.attached? ? cl_image_path(plant.photos.first.key) : "plant1.jpg" %>
+          <%= image_tag(url) %>
             <!--<img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />-->
-            <div class="card-product-infos">
-              <h2><%= plant.title %></h2>
-              <p><%= plant.description %></p>
-              <h4><%="£#{plant.price_per_clipping}/per clipping"%></h4>
-            </div>
+          <div class="card-product-infos">
+            <h2><%= plant.title %></h2>
+            <p><%= plant.description %></p>
+            <h4><%="£#{plant.price_per_clipping}/per clipping"%></h4>
           </div>
         </div>
       <% end %>
     <% end %>
   </div>
 
-  <!-- some DIRTY design to position the map for the demo, will need to clean up later  -->
-  <div style="width: 100%">
-    <h2 class="text-center">Map of users</h2>
+  <div class="column">
+    <h2>Map of users</h2>
     <div style="width: 100%; height:600px;"
-    data-controller="mapbox"
-    data-mapbox-markers-value="<%= @markers.to_json %>"
-    data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-  </div>
-</section>
+      data-controller="mapbox"
+      data-mapbox-markers-value="<%= @markers.to_json %>"
+      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+</div>
