@@ -35,17 +35,19 @@
     </div>
   </div>
 
-  <div class="mainpanel">
+  <div class="container">
     <% @plants.each do |plant| %>
       <%= link_to plant_path(plant), class:"text-decoration-none" do %>
-        <div class="card-product">
-          <% url = plant.photos.attached? ? cl_image_path(plant.photos.first.key) : "plant1.jpg" %>
-            <%= image_tag(url) %>
-          <!--<img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />-->
-          <div class="card-product-infos">
-            <h2><%= plant.title %></h2>
-            <p><%= plant.description %></p>
-            <h4><%="£#{plant.price_per_clipping}/per clipping"%></h4>
+        <div class="row">
+          <div class="card-product">
+            <% url = plant.photos.attached? ? cl_image_path(plant.photos.first.key) : "plant1.jpg" %>
+              <%= image_tag(url) %>
+            <!--<img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />-->
+            <div class="card-product-infos">
+              <h2><%= plant.title %></h2>
+              <p><%= plant.description %></p>
+              <h4><%="£#{plant.price_per_clipping}/per clipping"%></h4>
+            </div>
           </div>
         </div>
       <% end %>
