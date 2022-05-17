@@ -4,12 +4,12 @@ import "toastr";
 
 export default class extends Controller {
 
-  // connect() {
-  //   console.log('hello')
-  //   $(this.element).show(function() {
-  //     notification('success', 'this was a success!');
-  //   });
-  // }
+  connect() {
+    console.log('hello')
+    $(this.element).show(function() {
+      notification('success', 'this was a success!');
+    });
+  }
 
   add(event) {
     console.log(event)
