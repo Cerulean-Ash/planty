@@ -36,12 +36,18 @@ html_doc.search('.std-product-details > .image a img').each do |element|
 end
 
 # create two users so that we can link them with our plants
-first_user_hash = { first_name: "Alf", email: "test@test.test", address: "10 Downing St, London", password: "123456" }
-second_user_hash = { first_name: "Garfield", email: "test1@test.test", address: "138 Kingsland Rd, London", password: "654321" }
+first_user_hash = { first_name: "Alfonso", email: "test@test.test", address: "10 Downing St, London", password: "123456" }
+second_user_hash = { first_name: "Galadriel", email: "test1@test.test", address: "138 Kingsland Rd, London", password: "654321" }
+first_user_image = URI.open("https://images.unsplash.com/photo-1485528562718-2ae1c8419ae2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1116&q=80")
+second_user_image = URI.open("https://images.unsplash.com/photo-1485893086445-ed75865251e0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80")
 
-user_one = User.create!(first_user_hash)
+user_one = User.new(first_user_hash)
+user_one.photo.attach(io: first_user_image, filename: 'user1.png', content_type: 'image/png')
+user_one.save!
 sleep(1)
-user_two = User.create!(second_user_hash)
+user_two = User.new(second_user_hash)
+user_two.photo.attach(io: second_user_image, filename: 'user2.png', content_type: 'image/png')
+user_two.save!
 
 users = [user_one, user_two]
 

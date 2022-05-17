@@ -5,7 +5,11 @@
       <h2>Enjoy browsing this profile</h2>
     </div>
     <div class="col-2" >
-        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "img-thumbnail rounded", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <% if User.find(params[:id]).photo.attached? %>
+          <%= cl_image_tag User.find(params[:id]).photo.key, class: "img-thumbnail rounded", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% else %>
+          <%= image_tag "empty_avatar.jpg", class: "img-thumbnail rounded", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <% end %>
     </div>
   </div>
 
@@ -13,7 +17,7 @@
     <h2>Personal details</h2>
     <div>
       <h3>Address for plant collection:</h3>
-      <p><%=current_user.address%></li></p>
+      <p><%=User.find(params[:id]).address%></li></p>
     </div>
   </div>
 
