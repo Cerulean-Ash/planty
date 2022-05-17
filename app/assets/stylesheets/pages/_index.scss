@@ -3,28 +3,6 @@
 @import "plants_show";
 @import "sessions_new";
 
-.sidebar {
-  width: 400px;
-  height: auto;
-  position: fixed;
-  padding: 24px;
-  background-color: $darkgreen;
-  color: white;
-  }
-
-.sidebar p {
-  color: black;
+.column{
+  width: 50%;
 }
-
-  .sidebar div {
-  padding: 8px;
-  font-size: 24px;
-  display: block;
-  }
-
-  .mainpanel {
-  padding-top: 40px;
-  margin-left: 500px;
-  font-size: 18px;
-  grid-template-columns: 1fr;
-  }
