@@ -1,7 +1,10 @@
 <%= simple_form_for(@charge) do |f| %>
   <%= f.input :first_name %>
   <%= f.input :last_name %>
-  <%= f.input :delivery_address %>
+  <%= f.input :delivery_address,
+    input_html: {data: {geocoder_target: "address"}, class: "d-none"},
+    wrapper_html: {data: {controller: "geocoder",
+                           geocoder_api_key_value: ENV['MAPBOX_API_KEY']}} %>
   <%= f.input :additional_address %>
   <%= f.input :phone_number %>
   <%= f.button :submit, "Confirm" %>
