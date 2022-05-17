@@ -12,13 +12,13 @@
 
 <div class="container pb-8">
   <div class="show-plants-grid">
-    <div class="show-plants-grid__image-container d-flex flex-column" data-controller='toastr'>
+    <div class="show-plants-grid__image-container d-flex flex-column">
       <%= render "plant_image_previews", plant: @plant %>
     </div>
     <div class="show-plants-grid__carousel-container">
       <%= render "plant_carousel", plant: @plant %>
     </div>
-    <div class="show-plants-grid__details-container">
+    <div class="show-plants-grid__details-container" data-controller='toastr'>
       <%= render "details_card", plant: @plant %>
     </div>
   </div>

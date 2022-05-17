@@ -11,8 +11,9 @@ export default class extends Controller {
   //   });
   // }
 
-  addToCart() {
-    $(this.element).on(click, function() {
+  add(event) {
+    console.log(event)
+    $(this.element).click(function() {
       notification('success', 'this was a success! Woot Woot');
     });
   }
