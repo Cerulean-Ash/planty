@@ -1,7 +1,13 @@
 .show-plants-grid {
   display: grid;
   grid-template-columns: 1fr 8fr 4fr;
+  // margin: 24px;
 }
+
+#hard_id {
+  padding-top: 24px;
+}
+
 
 // TO DO: Make a nice notice
 .notice {
