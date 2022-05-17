@@ -40,7 +40,7 @@ class ChargesController < ApplicationController
   end
 
   def order_value
-    @amount = set_charge.total_cents.to_i
+    @amount = set_charge.total_cents.to_f
   end
 
   def description
