@@ -80,3 +80,6 @@ gem 'cloudinary', '~> 1.16.0'
 
 # stripe gem to handle payments
 gem 'stripe'
+
+# pg_search gem for the search bar
+gem 'pg_search', '~> 2.3.0'

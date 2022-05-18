@@ -7,6 +7,16 @@ class Plant < ApplicationRecord
   has_many :purchases #, dependent: :destroy
   before_destroy :ensure_not_referenced_by_any_purchase
 
+  include PgSearch::Model
+  pg_search_scope :search_by_title_and_synopsis,
+    against: [ :title, :color, :care_type],
+    associated_against: {
+      user: [:address]
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
+
   private
 
   #  ensure that there are no purchases referencing this product
