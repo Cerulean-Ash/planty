@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :photo)
+    params.require(:user).permit(:email, :first_name, :photo, :address)
   end
 
   def completed_orders
