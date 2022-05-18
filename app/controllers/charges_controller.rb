@@ -24,6 +24,7 @@ class ChargesController < ApplicationController
     @charge.add_products(current_user)
     destroy_cart
     redirect_to thanks_path
+    reduce_stock
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_charge_path
@@ -38,6 +39,13 @@ class ChargesController < ApplicationController
 
   def amount_to_be_charged
     @amount = set_cart.total_cents.to_i
+  end
+
+  def reduce_stock
+    set_charge.purchases.each do |purchase|
+      purchase.plant.number_of_clippings -= purchase.quantity_purchased
+      purchase.plant.save
+    end
   end
 
   def order_value
