@@ -11,6 +11,13 @@ class PlantsController < ApplicationController
         image_url: helpers.asset_url("planty_favicon.jpg")
       }
     end
+
+    if params[:query].present?
+      sql_query = "title ILIKE :query OR color ILIKE :query OR care_type ILIKE :query"
+      @plants = Plant.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @plants = Plant.all
+    end
   end
 
   def show

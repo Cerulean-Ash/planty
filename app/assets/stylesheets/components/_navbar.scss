@@ -1,5 +1,4 @@
 .navbar-lewagon {
-  justify-content: space-between;
   background: $cream;
 }
 
@@ -9,4 +8,13 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 75px;
+}
+
+.navbar{
+  border-bottom: 5px solid $darkgreen;
+  padding-bottom: 16px;
+}
+
+.container-fluid{
+  justify-content: space-between;
 }
