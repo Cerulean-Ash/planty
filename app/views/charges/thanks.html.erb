@@ -1,3 +1,45 @@
-<h2>Thanks, you paid <strong><%= pretty_amount(@amount) %></strong>!</h2>
+<div class="container pb-8 pt-4">
+  <h1 class='ps-3'>We received your order. Thank You</h1>
 
-<%= link_to 'Home', root_path, class:"btn btn-primary" %>
+  <div class="container d-flex px-3">
+    <div class="order-summary-container">
+      <h2 class="order-summary-title">Your order summary</h2>
+      <%= render "shared/order_summary", order: @charge %>
+    </div>
+    <div class="delivery-details-container">
+      <h2 class="order-summary-title">Delivery details</h2>
+      <div class="d-flex justify-content-between">
+        <div>
+          <p>Name:</p>
+          <p>Address:</p>
+          <p>Phone Number:</p>
+          <p>Order No:</p>
+        </div>
+        <div>
+          <p><%= @charge.first_name %> <%= @charge.last_name %></p>
+          <p><%= @charge.delivery_address %></p>
+          <p><%= @charge.phone_number %></p>
+          <% case @charge.id %>
+          <% when 0..9 %>
+            <p>000000<%= @charge.id %></p>
+          <% when 10..99 %>
+            <p>00000<%= @charge.id %></p>
+          <% when 100..999 %>
+            <p>0000<%= @charge.id %></p>
+          <% when 1000..9999 %>
+            <p>000<%= @charge.id %></p>
+          <% when 10000..99999 %>
+            <p>00<%= @charge.id %></p>
+          <% when 100000..999999 %>
+            <p>0<%= @charge.id %></p>
+          <% else %>
+            <p><%= @charge.id %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ps-3">
+    <%= link_to 'Continue Shopping', plants_path, class:"btn btn-primary" %>
+  </div>
+</div>
