@@ -1,4 +1,4 @@
-<div class="details-card-body">
+<div class="details-card-body" data-controller='purchase-controls'>
   <div class="seller-details">
     <p class='seller'>Posted by: <%= plant.user.first_name %></p>
     <p>Rating: </p>
@@ -12,10 +12,10 @@
   </div>
   <hr>
   <div class="purchase-option">
-    <p>Available cuttings: <%= plant.number_of_clippings %></p>
+    <p data-purchase-controls-target="num_available" data-numAvailable="<%= plant.number_of_clippings %>" >Available cuttings: <%= plant.number_of_clippings %></p>
   </div>
 
-  <div class="form-container" data-controller='purchase-controls'>
+  <div class="form-container">
     <div class="header">
       <div class="header-row">
         <div class="big-bold" id="price" data-purchase-controls-target="price_per" data-costPer="<%= plant.price_per_clipping %>">
