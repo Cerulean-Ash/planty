@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/cart', to: 'carts#show'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :plants do
-    resources :purchases, only: [:new, :create]
+    resources :purchases, only: [:new, :create, :destroy]
   end
   resources :purchases, only: [:show] do
     resources :reviews, only: [:new, :create]
@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :users
   resources :carts
 
-  get '/checkout', to: 'carts#checkout'
+  resources :purchases, only: [:destroy]
 
   resources :charges, only: [:new, :create]
   get 'thanks', to: 'charges#thanks', as: 'thanks'
