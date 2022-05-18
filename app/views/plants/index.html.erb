@@ -8,9 +8,15 @@
               <%= image_tag(url) %>
           <!--<img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />-->
             <div class="card-product-infos">
-              <h2><%= plant.title %></h2>
-              <p><%= plant.description %></p>
-              <h4><%="£#{plant.price_per_clipping}/per clipping"%></h4>
+              <div class ="pb-2">
+                <h2><%= plant.title %></h2>
+              </div>
+              <div class ="pb-2">
+                <p><%= plant.description %></p>
+              </div>
+              <div>
+                <h4><%="£#{plant.price_per_clipping}/per clipping"%></h4>
+              </div>
             </div>
           </div>
         <% end %>
