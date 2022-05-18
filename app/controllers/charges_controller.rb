@@ -31,6 +31,7 @@ class ChargesController < ApplicationController
 
   def thanks
     order_value
+    set_cart
   end
 
   private
