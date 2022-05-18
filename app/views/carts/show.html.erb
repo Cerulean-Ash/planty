@@ -15,10 +15,6 @@
   <% total = 0 %>
   <% @cart.purchases.each do |plant| %>
     <% total += plant.plant.price_per_clipping * plant.quantity_purchased%>
-
-
-
-
     <tr>
       <th scope="row"><img src="<%= cl_image_path plant.plant.photos.first.key, crop: :fill %>"class= "plant_preview image_col" alt=""></th>
       <td><div class='cart-cell title-cell'><%= link_to "#{plant.plant.title}", plant_path(plant.plant) %></div></td>
@@ -31,12 +27,7 @@
           </div>
       </td>
     </tr>
-
-
-
-
   <% end %>
-
     <tfoot class='cart-foot'>
       <tr>
       <th colspan="3"><h3>Total:</h3></th>
@@ -47,7 +38,7 @@
 </table>
 
 
-  <div class="container mt-2">
+  <div class="container mt-2 p-0">
     <% unless @cart.purchases.empty? %>
       <%= link_to 'checkout', new_charge_path, class:'btn btn-primary' %>
     <% else %>
