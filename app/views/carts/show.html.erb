@@ -1,8 +1,5 @@
 <div class="container mt-5">
   <h1>Your cart</h1>
-  <% if @cart.purchases.empty? %>
-    <h2>Your cart is empty</h2>
-  <% end %>
 
   <table class="table cart_table">
     <thead>
@@ -54,7 +51,8 @@
     <% unless @cart.purchases.empty? %>
       <%= link_to 'checkout', new_charge_path, class:'btn btn-primary' %>
     <% else %>
-      <%= link_to 'Add some cool plants', charges_path, class:'btn btn-primary' %>
+      <h2 class='pb-3'>Your cart is empty</h2>
+      <%= link_to 'Add some cool plants', plants_path, class:'btn btn-primary' %>
     <% end %>
   </div>
 </div>
