@@ -25,6 +25,6 @@
     <h2>Plant listings by <%= User.find(params[:id]).first_name %></h2>
       <% @other_listings.each do |plant| %>
         <li>ID:<%= plant.id %>. <%= plant.title %> - £<%= plant.price_per_clipping %></li>
-        <%= link_to 'See plant', plant_path(plant) %>
+        <%= link_to 'View listing', plant_path(plant) %>
       <% end %>
 </div>
