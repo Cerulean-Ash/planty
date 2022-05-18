@@ -24,10 +24,15 @@ class PurchasesController < ApplicationController
     end
   end
 
+  def destroy
+    @purchase.destroy
+    redirect_to cart_path
+  end
+
   private
 
   def set_purchase
-    Purchase.find(params[:id])
+    @purchase = Purchase.find(params[:id])
   end
 
   def find_plant
