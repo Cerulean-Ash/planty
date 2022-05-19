@@ -1,6 +1,6 @@
-<div class="wrapper bg-white">
+<div class="wrapper bg-white pb-4">
   <div class="h2 text-center">PLANTY</div>
-  <div class="h4 text-muted text-center p-8">Forgot your password?</div>
+  <div class="h4 text-muted text-center">Forgot your password?</div>
 
 <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= f.error_notification %>
@@ -12,7 +12,7 @@
                 input_html: { autocomplete: "email" } %>
   </div>
 
-  <div class="form-actions p-8">
+  <div class="form-actions">
     <%= f.button :submit, "Send me reset password instructions" %>
   </div>
   <% end %>

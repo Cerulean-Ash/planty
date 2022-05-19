@@ -1,34 +1,54 @@
-<div class="container pb-8 pt-3">
-  <%= simple_form_for(@charge) do |f| %>
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
-    <%= f.input :delivery_address,
-      input_html: {data: {geocoder_target: "address"}, class: "d-none"},
-      wrapper_html: {data: {controller: "geocoder",
-                            geocoder_api_key_value: ENV['MAPBOX_API_KEY']}} %>
-    <%= f.input :additional_address %>
-    <%= f.input :phone_number %>
-    <%= f.button :submit, "Pay £#{sprintf('%.2f', @amount.fdiv(100))} with Card" %>
-
-    <article>
-
-      <% if flash[:error].present? %>
-      <div id="error_explanation">
-        <p><%= flash[:error] %></p>
+<div class="container pb-8 pt-5">
+  <h1 class="ms-3">Checkout</h1>
+  <div class="container d-flex px-3">
+    <div class="order-summary-container">
+      <h2 class="order-summary-title">Your order summary</h2>
+      <%= render "shared/order_summary", order: @cart %>
+    </div>
+    <div class="delivery-details-container">
+      <h2 class="order-summary-title">Delivery details</h2>
+      <%= simple_form_for(@charge) do |f| %>
+      <div class="form-input-container d-flex">
+        <%= f.input :first_name %>
+        <%= f.input :last_name %>
       </div>
+      <%= f.input :delivery_address,
+        input_html: {data: {geocoder_target: "address"}, class: "d-none"},
+        wrapper_html: {data: {controller: "geocoder",
+                              geocoder_api_key_value: ENV['MAPBOX_API_KEY']}} %>
+      <%= f.input :additional_address %>
+      <%= f.input :phone_number %>
+      <%= f.button :submit, "Buy now" %>
+
+      <article>
+
+        <% if flash[:error].present? %>
+        <div id="error_explanation">
+          <p><%= flash[:error] %></p>
+        </div>
+        <% end %>
+
+        <label class="amount">
+        <span>Amount: <%= pretty_amount(@amount) %></span>
+        </label>
+
+      </article>
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+
+        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+        data-description="<%= @description %>"
+        data-amount="<%= @amount %>"
+        data-email="<%= current_user.email %>"
+        data-locale="auto"></script>
       <% end %>
+    </div>
 
-      <label class="amount">
-      <span>Amount: <%= pretty_amount(@amount) %></span>
-      </label>
+  </div>
 
-    </article>
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 
-    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-    data-description="<%= @description %>"
-    data-amount="<%= @amount %>"
-    data-email="<%= current_user.email %>"
-    data-locale="auto"></script>
-  <% end %>
+
+
+
+
+
 </div>

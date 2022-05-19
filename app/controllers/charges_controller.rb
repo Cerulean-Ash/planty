@@ -1,5 +1,6 @@
 class ChargesController < ApplicationController
   before_action :amount_to_be_charged, except: :thanks
+  before_action :set_cart, except: :create
   # before_action :delete_cart, only: :thanks
 
   def new
@@ -32,7 +33,6 @@ class ChargesController < ApplicationController
 
   def thanks
     order_value
-    set_cart
   end
 
   private
