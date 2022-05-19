@@ -33,7 +33,12 @@
             <%= link_to "List a Plant", new_plant_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "My cart", cart_path, class: "nav-link" %>
+            <div class='nav-item-cart'>
+              <% unless items_in_cart == 0 %>
+                <div class='cart_count'><p><%= items_in_cart %></p></div>
+              <% end %>
+              <%= link_to "<i class='fa-solid fa-cart-shopping'></i>".html_safe, cart_path, class: "nav-link" %>
+            </div>
           </li>
           <li class="nav-item dropdown">
             <% if current_user.photo.attached? %>
