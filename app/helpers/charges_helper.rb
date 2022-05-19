@@ -9,5 +9,7 @@ module ChargesHelper
       num_items += purchase.quantity_purchased
     end
     return num_items
+  rescue NoMethodError
+    return num_items = 0
   end
 end
