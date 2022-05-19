@@ -68,7 +68,7 @@ care_array = %w[Easy Medium Hard]
   attributes[:color] = color
 
   # getting a random price_per_clipping and number of clippings
-  attributes[:price_per_clipping] = rand(5.00..55.99).round(2)
+  attributes[:price_per_clipping] = rand(5.00..10.99).round(2)
   attributes[:number_of_clippings] = rand(1..15)
 
   plant = Plant.new(attributes)
@@ -82,6 +82,13 @@ care_array = %w[Easy Medium Hard]
   titles.delete_at(0)
   descriptions.delete_at(0)
   images.delete_at(0)
+end
+
+i = 0
+Plant.all.each do |plant|
+  plant.photos.attach(io: File.open("app/assets/images/seed_plant_#{i}.jpg"), filename: "plant#{i}.jpg", content_type: 'image/jpg')
+  i += 1
+  plant.save!
 end
 
 puts "Done! #{Plant.count} plants and #{User.count} users created!"
