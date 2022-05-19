@@ -16,6 +16,10 @@ class PlantsController < ApplicationController
       # sql_query = "title ILIKE :query OR color ILIKE :query OR care_type ILIKE :query"
       # @plants = Plant.where(sql_query, query: "%#{params[:query]}%")
       @plants = Plant.search_by_title_color_care_type(params[:query])
+      if @plants.empty?
+        redirect_back(fallback_location: root_path)
+        flash[:alert] = "No such plant!"
+      end
     else
       @plants = Plant.all
     end
