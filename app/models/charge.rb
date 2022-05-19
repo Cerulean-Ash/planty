@@ -1,6 +1,7 @@
 class Charge < ApplicationRecord
   belongs_to :user
   has_many :purchases
+  validates :first_name, :last_name, :delivery_address, :phone_number, presence: true
 
   def add_products(user)
     purchases = Purchase.where(cart_id: user.carts.first.id)

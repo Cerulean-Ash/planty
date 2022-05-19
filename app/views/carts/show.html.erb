@@ -40,7 +40,7 @@
 
   <div class="container mt-2 p-0">
     <% unless @cart.purchases.empty? %>
-      <%= link_to 'checkout', new_charge_path, class:'btn btn-primary' %>
+      <%= link_to 'Checkout', new_charge_path, class:'btn btn-primary' %>
     <% else %>
       <h2 class='pb-3'>Your cart is empty</h2>
       <%= link_to 'Add some cool plants', plants_path, class:'btn btn-primary' %>
