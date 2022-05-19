@@ -13,8 +13,9 @@ class PlantsController < ApplicationController
     end
 
     if params[:query].present?
-      sql_query = "title ILIKE :query OR color ILIKE :query OR care_type ILIKE :query"
-      @plants = Plant.where(sql_query, query: "%#{params[:query]}%")
+      # sql_query = "title ILIKE :query OR color ILIKE :query OR care_type ILIKE :query"
+      # @plants = Plant.where(sql_query, query: "%#{params[:query]}%")
+      @plants = Plant.search_by_title_color_care_type(params[:query])
     else
       @plants = Plant.all
     end
