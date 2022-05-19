@@ -1,5 +1,5 @@
 <section class="content pb-8" style="display: flex;">
-  <div class="row">
+  <div class="row plants-container">
     <div class="column">
       <% @plants.each do |plant| %>
         <%= link_to plant_path(plant), class:"text-decoration-none" do %>
@@ -27,7 +27,7 @@
   <!-- some DIRTY design to position the map for the demo, will need to clean up later  -->
     <div class="column">
       <h2>Map of users</h2>
-      <div style="width: 90%; height:100vh;"
+      <div class='map-container' style="width: 90%; height:70vh;"
       data-controller="mapbox"
       data-mapbox-markers-value="<%= @markers.to_json %>"
       data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
