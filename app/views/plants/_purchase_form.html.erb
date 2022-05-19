@@ -11,6 +11,7 @@
         </div>
       </div>
       <div class="div mt-4">
-      <%= f.submit "Pay #{plant.price_per_clipping}", class: "btn btn-primary", data: { purchase_controls_target: 'price' } %>
+      <p class='big-bold' data-purchase-controls-target='price'>Total: £<%= plant.price_per_clipping %></p>
+      <%= f.submit "Add to cart", class: "btn btn-primary" %>
       <% end %>
       </div>

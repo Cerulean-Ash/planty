@@ -5,7 +5,7 @@ export default class extends Controller {
 
   #updateNumbers = (count) => {
     const cost = this.price_perTarget.dataset.costper * count;
-    this.priceTarget.value = `Pay ${cost.toFixed(2)}`;
+    this.priceTarget.innerHTML = `Total: £${cost.toFixed(2)}`;
   }
 
   #maxNumbers = () => {
