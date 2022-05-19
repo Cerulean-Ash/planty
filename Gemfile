@@ -83,3 +83,6 @@ gem 'stripe'
 
 # pg_search gem for the search bar
 gem 'pg_search', '~> 2.3.0'
+
+# turbolinks render
+gem "turbolinks_render"
