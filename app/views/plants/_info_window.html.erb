@@ -1,3 +1,4 @@
-<h2><%= link_to "#{user.first_name}", user_path(user) %></h2>
-<p>Address:<%=user.address %></p>
-<p>Selling <%= user.plants.count %> plants</p>
+<h2><%= user.first_name %></h2> <%= cl_image_tag user.photo.key, class: "avatar mt-1" %>
+<p class="mt-1">Address:<%=user.address %></p>
+<h3>Selling <%= user.plants.count %> plants</h3>
+<%= link_to "Check profile", user_path(user), class:"btn mt-1" %>
