@@ -18,7 +18,7 @@ class PurchasesController < ApplicationController
     @purchase.user = current_user
     if @purchase.save
       redirect_to plant_path(plant)
-      flash[:alert] = "Added to cart!"
+      flash[:notice] = "Added to cart!"
     else
       redirect_to plant_path(plant)
       # render :new
