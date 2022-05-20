@@ -14,58 +14,90 @@
   </div>
 
   <div class="container user-container">
-    <div class="user_grid row">
-      <h2>Your plant purchases</h2>
-        <% @purchases.each do |plant| %>
-          <li>ID:<%= plant.plant.id %>. <%= plant.plant.title %> X <%= plant.quantity_purchased %> - £<%= (plant.plant.price_per_clipping * plant.quantity_purchased).round(2) %></li>
-          <%= link_to 'Review', new_purchase_review_path(plant) %>
+      <div class="user_grid row">
+        <h2>Your plant purchases</h2>
+          <% if @purchases.empty? %>
+            <p class="mt-3">You have made no purchases yet. Go buy some plants!</p>
+          <% else %>
+            <div class = "grid__user_cards">
+            <% @purchases.each do |plant| %>
+              <div class="card-trip">
+                <% url = plant.plant.photos.attached? ? cl_image_path(plant.plant.photos.first.key) : "plant1.jpg" %>
+                <%= image_tag(url) %>
+                <div class="card-trip-infos">
+                  <div>
+                    <h2 class="py-2"><%= plant.plant.title %></h2>
+                    <p><%= "#{plant.plant.description[0..18]}..." %></p>
+                  </div>
+                  <div>
+                    <h2 class="card-trip-pricing"><%= "£#{plant.plant.price_per_clipping}" %></h2>
+                  </div>
+                </div>
+                <div class="listing-container" >
+                  <%= link_to 'Review', new_purchase_review_path(plant), {:style=>'font-size:12px' } %>
+                </div>
+              </div>
+            <% end %>
+            </div>
+          <% end %>
+      </div>
+
+    <div class="user_grid row ">
+      <h2>Your Listed plants</h2>
+        <% if @listings.empty? %>
+          <p class="mt-3">You have made no listings. Sell your plants now!</p>
+        <% else %>
+          <div class = "grid__user_cards">
+            <% @listings.each do |plant| %>
+              <div class="card-trip">
+                <% url = plant.photos.attached? ? cl_image_path(plant.photos.first.key) : "plant1.jpg" %>
+                <%= image_tag(url) %>
+                <div class="card-trip-infos">
+                  <div>
+                    <h2 class="py-2"><%= plant.title %></h2>
+                    <p><%= "#{plant.description[0..18]}..." %></p>
+                  </div>
+                  <h2 class="card-trip-pricing"><%= "£#{plant.price_per_clipping}" %></h2>
+                </div>
+                <div class="listing-container" >
+                  <%= link_to "View listing", plant_path(plant), {:style=>'font-size:12px' }%>
+                  <%= link_to "Edit listing", edit_plant_path(plant), {:style=>'font-size:12px' } %>
+                </div>
+              </div>
+            <% end %>
+          </div>
         <% end %>
     </div>
 
     <div class="user_grid row ">
-      <h2>Your Listed plants</h2>
-      <div class = "grid__cards">
-          <% @listings.each do |plant| %>
-            <div class="card-trip">
-              <% url = plant.photos.attached? ? cl_image_path(plant.photos.first.key) : "plant1.jpg" %>
-              <%= image_tag(url) %>
-              <div class="card-trip-infos">
-                <div>
-                  <h2 class="py-2"><%= plant.title %></h2>
-                  <p><%= "#{plant.description[0..18]}..." %></p>
-                </div>
-                <h2 class="card-trip-pricing"><%= "£#{plant.price_per_clipping}" %></h2>
-              </div>
-              <div class="listing-container" >
-                <%= link_to "View listing", plant_path(plant), {:style=>'font-size:12px' }%>
-                <%= link_to "Edit listing", edit_plant_path(plant), {:style=>'font-size:12px' } %>
-              </div>
-            </div>
-          <% end %>
-      </div>
-    </div>
-
-    <div class="user_grid row ">
       <h2>Plants you've sold</h2>
-      <% total = 0 %>
-      <div class = "grid__cards">
-          <% @sales.each do |plant| %>
-            <div class="card-trip">
-              <% url = plant.plant.photos.attached? ? cl_image_path(plant.plant.photos.first.key) : "plant1.jpg" %>
-              <%= image_tag(url) %>
-              <div class="card-trip-infos">
-                <div>
-                  <h2 class="py-2"><%= plant.plant.title%></h2>
-                  <p><%= "Plant purchased: £#{plant.quantity_purchased}"%></p>
-                  <p><%= "Total: £#{(plant.plant.price_per_clipping * plant.quantity_purchased).round(2)}"%></p>
-                  <% total += plant.plant.price_per_clipping * plant.quantity_purchased %>
+        <% if @sales.empty? %>
+          <p class="mt-3">You have made no sales!</p>
+        <% else %>
+        <% total = 0 %>
+        <div class = "grid__user_cards">
+            <% @sales.each do |plant| %>
+              <div class="card-trip">
+                <% url = plant.plant.photos.attached? ? cl_image_path(plant.plant.photos.first.key) : "plant1.jpg" %>
+                <%= image_tag(url) %>
+                <div class="card-trip-infos">
+                  <div>
+                    <h2 class="py-2"><%= plant.plant.title%></h2>
+                    <p><%= "#{plant.plant.description[0..18]}..." %></p>
+                  </div>
+                    <h2 class="card-trip-pricing"><%= "£#{plant.plant.price_per_clipping}" %></h2>
+                    <% total += plant.plant.price_per_clipping * plant.quantity_purchased %>
+                </div>
+                <div class="listing-container">
+                  <p><%= "Plant purchased: #{plant.quantity_purchased}"%></p>
+                </div>
+                <div class="listing-container">
+                  <h2><%= "Total: £#{(plant.plant.price_per_clipping * plant.quantity_purchased).round(2)}"%></h2>
                 </div>
               </div>
-            </div>
-          <% end %>
-      </div>
-      <div>
-        <h3>Total sales: £<%= total.round(2) %> </h3>
-      </div>
+            <% end %>
+        </div>
+          <h3 class="mt-3">Total sales: £<%= total.round(2) %> </h3>
+      <% end %>
     </div>
 </div>
