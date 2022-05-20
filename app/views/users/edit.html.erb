@@ -1,0 +1,14 @@
+<div class="container">
+  <h2 class="mt-3">Change your details below</h2>
+
+  <%= simple_form_for(@user) do |f| %>
+    <%= f.input :first_name %>
+    <%= f.input :address %>
+    <%= f.input :email %>
+    <%= f.input :photos, as: :file, input_html: { multiple: false } %>
+    <%= f.button :submit, "Confirm" %>
+  <% end %>
+
+  <%= link_to "or go back to Home Page", :root %>
+
+</div>

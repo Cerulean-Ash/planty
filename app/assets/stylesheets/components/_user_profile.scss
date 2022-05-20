@@ -1,0 +1,44 @@
+.user_banner {
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+}
+
+.divider{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+}
+
+.avatar-bordered {
+  width: 250px;
+  height: 250px;
+  position: absolute;
+  margin-top: 100px;
+  left: 20%;
+  border: solid;
+  border-color: rgb(131, 131, 131);
+}
+
+.user-title{
+  margin-left: 35%;
+  position: absolute;
+  bottom: 0;
+  padding: 8px;
+}
+
+.user-container{
+  margin-top: 100px !important;
+}
+
+.listing-container{
+  display: flex;
+  justify-content: space-between;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 16px;
+}
