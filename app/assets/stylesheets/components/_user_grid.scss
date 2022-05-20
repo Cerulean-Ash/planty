@@ -1,6 +1,12 @@
 .user_grid {
   margin: 24px;
   margin-bottom: 20px;
-  border-style: solid;
   padding: 24px;
+  border-top: 5px solid $darkgreen;
+}
+
+.grid__user_cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 64px;
 }

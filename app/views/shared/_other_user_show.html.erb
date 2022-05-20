@@ -1,30 +1,42 @@
-<div class="container pb-8">
-  <div class="user_grid row justify-content-between">
-    <div class="col-4 ">
-      <h1><strong>Say hi to <%=User.find(params[:id]).first_name%>!</strong></h1>
-      <h2>Enjoy browsing this profile</h2>
-    </div>
-    <div class="col-2" >
+<div class="pb-8">
+    <div class="user_banner center-block position-relative" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path("user_banner.jpg")%>);">
+
+      <div class="divider">
         <% if User.find(params[:id]).photo.attached? %>
-          <%= cl_image_tag User.find(params[:id]).photo.key, class: "img-thumbnail rounded", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <% else %>
-          <%= image_tag "empty_avatar.jpg", class: "img-thumbnail rounded", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <%= cl_image_tag User.find(params[:id]).photo.key, class:"avatar-bordered", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <% else %>
+          <%= image_tag "empty_avatar.jpg", class: "avatar-bordered", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <% end %>
+        <div class="user-title">
+          <h1 style="color:white"><strong><%=User.find(params[:id]).first_name%></strong></h1>
+          <div row d-flex>
+            <p style="color:white"><%=User.find(params[:id]).address%></p>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-
-  <div class="user_grid row">
-    <h2>Personal details</h2>
-    <div>
-      <h3>Address for plant collection:</h3>
-      <p><%=User.find(params[:id]).address%></li></p>
+    <div class="container user-container">
+      <div class="user_grid row ">
+        <h2><%= User.find(params[:id]).first_name %>'s plant listings</h2>
+          <% if @other_listings.empty? %>
+            <p class="mt-3">No plants on sale yet!</p>
+          <% else %>
+            <div class = "grid__user_cards">
+              <%  @other_listings.each do |plant| %>
+                <div class="card-trip">
+                  <% url = plant.photos.attached? ? cl_image_path(plant.photos.first.key) : "plant1.jpg" %>
+                  <%= image_tag(url) %>
+                  <div class="card-trip-infos">
+                    <div>
+                      <h2 class="py-2"><%= plant.title %></h2>
+                      <p><%= "#{plant.description[0..18]}..." %></p>
+                    </div>
+                    <h2 class="card-trip-pricing"><%= "£#{plant.price_per_clipping}" %></h2>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+      </div>
     </div>
-  </div>
-
-  <div class="user_grid row">
-    <h2>Plant listings by <%= User.find(params[:id]).first_name %></h2>
-      <% @other_listings.each do |plant| %>
-        <li>ID:<%= plant.id %>. <%= plant.title %> - £<%= plant.price_per_clipping %></li>
-        <%= link_to 'View listing', plant_path(plant) %>
-      <% end %>
 </div>
