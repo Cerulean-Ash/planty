@@ -20,7 +20,8 @@ class PurchasesController < ApplicationController
       redirect_to plant_path(plant)
       flash[:notice] = "Added to cart!"
     else
-      redirect_to plant_path(plant)
+      render plant_path(plant)
+      flash[:notice] = "Error!"
       # render :new
     end
   end

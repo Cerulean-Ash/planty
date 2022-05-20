@@ -23,6 +23,7 @@
       <td><div class='cart-cell'><%= link_to '<i class="fas fa-trash"></i>'.html_safe,
             purchase_path(plant),
             method: :delete,
+            remote: true,
             data: { confirm: "Are you sure?" } %>
           </div>
       </td>

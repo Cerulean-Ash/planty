@@ -1,7 +1,7 @@
 <div class="image-container">
   <% if plant.photos.attached? %>
-    <% plant.photos.each do |photo| %>
-      <img src="<%= cl_image_path photo.key, crop: :fill %>"class= "d-block w-100" alt="">
+    <% plant.photos.each_with_index do |photo, index| %>
+        <a data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%= index %>"><img src="<%= cl_image_path photo.key, crop: :fill %>" class= "preview_image d-block w-100" alt=""></a>
     <% end %>
   <% else %>
     <%= image_tag "plant1.jpg", class:"d-block w-100" %>
