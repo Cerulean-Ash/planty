@@ -32,7 +32,9 @@ end
 
 images = []
 html_doc.search('.std-product-details > .image a img').each do |element|
-  images << "https://www.hedgesdirect.co.uk/acatalog/#{element.attr('data-src')}"
+  image_url = "https://www.hedgesdirect.co.uk/acatalog/#{element.attr('data-src')}"
+  image_url.slice!("360_50_")
+  images << image_url
 end
 
 # create two users so that we can link them with our plants
