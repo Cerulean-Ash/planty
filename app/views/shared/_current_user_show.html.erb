@@ -37,8 +37,20 @@
                     <h2 class="card-trip-pricing"><%= "£#{plant.plant.price_per_clipping}" %></h2>
                   </div>
                 </div>
-                <div class="listing-container" >
-                  <%= link_to 'Review', new_purchase_review_path(plant), {:style=>'font-size:12px' } %>
+                <div class="listing-container" id="reviews-container" >
+                  <% if plant.review %>
+                    <% plant.review.rating.times do %>
+                      <i class="fa-solid fa-star pb-2" style="color: gold"></i>
+                    <% end %>
+                    <% else %>
+                      <%= link_to 'Review', new_purchase_review_path(plant), {:style=>'font-size:12px'} %>
+                      <i class="anim-star-1 fa-solid fa-star pb-2"></i>
+                      <i class="anim-star-2 fa-solid fa-star pb-2"></i>
+                      <i class="anim-star-3 fa-solid fa-star pb-2"></i>
+                      <i class="anim-star-4 fa-solid fa-star pb-2"></i>
+                      <i class="anim-star-5 fa-solid fa-star pb-2"></i>
+                  <% end %>
+
                 </div>
               </div>
             <% end %>
