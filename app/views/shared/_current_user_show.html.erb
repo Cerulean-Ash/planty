@@ -1,39 +1,71 @@
-<div class="user_banner center-block position-relative" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path("user_banner.jpg")%>);">
-  <div class="divider">
-    <% if current_user.photo.attached? %>
-      <%= cl_image_tag current_user.photo.key, class:"avatar-bordered", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-    <% else %>
-      <%= image_tag "empty_avatar.jpg", class: "avatar-bordered", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-    <% end %>
-    <div class="user-title">
-      <h1 style="color:white"><strong><%=current_user.first_name%></h1>
-      <p style="color:white"><%=current_user.address%></li></p>
+<div class="pb-8">
+  <div class="user_banner center-block position-relative" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path("user_banner.jpg")%>);">
+    <div class="divider">
+      <% if current_user.photo.attached? %>
+        <%= cl_image_tag current_user.photo.key, class:"avatar-bordered", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <% else %>
+        <%= image_tag "empty_avatar.jpg", class: "avatar-bordered", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <% end %>
+      <div class="user-title">
+        <h1 style="color:white"><strong><%=current_user.first_name%></strong></h1>
+        <p style="color:white"><%=current_user.address%></li></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container user-container">
+    <div class="user_grid row">
+      <h2>Your plant purchases</h2>
+        <% @purchases.each do |plant| %>
+          <li>ID:<%= plant.plant.id %>. <%= plant.plant.title %> X <%= plant.quantity_purchased %> - £<%= (plant.plant.price_per_clipping * plant.quantity_purchased).round(2) %></li>
+          <%= link_to 'Review', new_purchase_review_path(plant) %>
+        <% end %>
     </div>
 
-</div>
+    <div class="user_grid row ">
+      <h2>Your Listed plants</h2>
+      <div class = "grid__cards">
+          <% @listings.each do |plant| %>
+            <div class="card-trip">
+              <% url = plant.photos.attached? ? cl_image_path(plant.photos.first.key) : "plant1.jpg" %>
+              <%= image_tag(url) %>
+              <div class="card-trip-infos">
+                <div>
+                  <h2 class="py-2"><%= plant.title %></h2>
+                  <p><%= "#{plant.description[0..18]}..." %></p>
+                </div>
+                <h2 class="card-trip-pricing"><%= "£#{plant.price_per_clipping}" %></h2>
+              </div>
+              <div class="listing-container" >
+                <%= link_to "View listing", plant_path(plant), {:style=>'font-size:12px' }%>
+                <%= link_to "Edit listing", edit_plant_path(plant), {:style=>'font-size:12px' } %>
+              </div>
+            </div>
+          <% end %>
+      </div>
+    </div>
 
-</div>
-  <div class="user_grid row">
-    <h2>Your plant purchases</h2>
-      <% @purchases.each do |plant| %>
-        <li>ID:<%= plant.plant.id %>. <%= plant.plant.title %> X <%= plant.quantity_purchased %> - £<%= (plant.plant.price_per_clipping * plant.quantity_purchased).round(2) %></li>
-        <%= link_to 'Review', new_purchase_review_path(plant) %>
-      <% end %>
-  </div>
-  <div class="user_grid row">
-    <h2>Your Listed plants</h2>
-      <% @listings.each do |plant| %>
-        <li>ID:<%= plant.id %>. <%= plant.title %> - £<%= plant.price_per_clipping %></li>
-        <%= link_to "View listing", plant_path(plant) %>
-        <%= link_to "Edit listing", edit_plant_path(plant) %>
-      <% end %>
-  </div>
-    <div class="user_grid row">
-    <h2>Plants You've Sold</h2>
+    <div class="user_grid row ">
+      <h2>Plants you've sold</h2>
       <% total = 0 %>
-      <% @sales.each do |plant| %>
-        <li>ID:<%= plant.plant.id %>. <%= plant.plant.title %> X <%= plant.quantity_purchased %> - £<%= (plant.plant.price_per_clipping * plant.quantity_purchased).round(2) %></li>
-        <% total += plant.plant.price_per_clipping * plant.quantity_purchased %>
-      <% end %>
-      <h3>Total sales: £<%= total.round(2) %> </h3>
-  </div>
+      <div class = "grid__cards">
+          <% @sales.each do |plant| %>
+            <div class="card-trip">
+              <% url = plant.plant.photos.attached? ? cl_image_path(plant.plant.photos.first.key) : "plant1.jpg" %>
+              <%= image_tag(url) %>
+              <div class="card-trip-infos">
+                <div>
+                  <h2 class="py-2"><%= plant.plant.title%></h2>
+                  <p><%= "Plant purchased: £#{plant.quantity_purchased}"%></p>
+                  <p><%= "Total: £#{(plant.plant.price_per_clipping * plant.quantity_purchased).round(2)}"%></p>
+                  <% total += plant.plant.price_per_clipping * plant.quantity_purchased %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+      </div>
+      <div>
+        <h3>Total sales: £<%= total.round(2) %> </h3>
+      </div>
+    </div>
+</div>

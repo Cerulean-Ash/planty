@@ -11,6 +11,7 @@
   top: 0;
   left: 0;
   z-index: 10;
+  display: flex;
 }
 
 .avatar-bordered {
@@ -27,4 +28,16 @@
   margin-left: 35%;
   position: absolute;
   bottom: 0;
+}
+
+.user-container{
+  margin-top: 100px !important;
+}
+
+.listing-container{
+  display: flex;
+  justify-content: space-between;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 16px;
 }
