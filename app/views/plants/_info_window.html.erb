@@ -1,4 +1,9 @@
-<h2><%= user.first_name %></h2> <%= cl_image_tag user.photo.key, class: "avatar mt-1" %>
+<h2><%= user.first_name %></h2>
+<% if user.photo.attached? %>
+  <%= cl_image_tag user.photo.key, class: "avatar mt-1" %>
+  <% else %>
+  <%= image_tag "empty_avatar.jpg", class: "avatar mt-1" %>
+<% end %>
 <p class="mt-1">Address:<%=user.address %></p>
 <h3>Selling <%= user.plants.count %> plants</h3>
 <%= link_to "Check profile", user_path(user), class:"btn mt-1" %>
