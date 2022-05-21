@@ -34,7 +34,7 @@
                     <p><%= "#{plant.plant.description[0..18]}..." %></p>
                   </div>
                   <div>
-                    <h2 class="card-trip-pricing"><%= "£#{plant.plant.price_per_clipping}" %></h2>
+                    <h2 class="card-trip-pricing"><%= "#{pretty_amount(plant.plant.price_per_clipping*100)}" %></h2>
                   </div>
                 </div>
                 <div class="listing-container" id="reviews-container" >
@@ -43,7 +43,7 @@
                       <i class="fa-solid fa-star pb-2" style="color: gold"></i>
                     <% end %>
                     <% else %>
-                      <%= link_to 'Review', new_purchase_review_path(plant), {:style=>'font-size:12px'} %>
+                      <%= link_to 'Review', new_purchase_review_path(plant), {:style=>'font-size:12px', :class=>'user-show-review-link'} %>
                       <i class="anim-star-1 fa-solid fa-star pb-2"></i>
                       <i class="anim-star-2 fa-solid fa-star pb-2"></i>
                       <i class="anim-star-3 fa-solid fa-star pb-2"></i>
@@ -73,7 +73,7 @@
                     <h2 class="py-2"><%= plant.title %></h2>
                     <p><%= "#{plant.description[0..18]}..." %></p>
                   </div>
-                  <h2 class="card-trip-pricing"><%= "£#{plant.price_per_clipping}" %></h2>
+                  <h2 class="card-trip-pricing"><%= "#{pretty_amount(plant.price_per_clipping*100)}" %></h2>
                 </div>
                 <div class="listing-container" >
                   <%= link_to "View listing", plant_path(plant), {:style=>'font-size:12px' }%>
@@ -101,19 +101,19 @@
                     <h2 class="py-2"><%= plant.plant.title%></h2>
                     <p><%= "#{plant.plant.description[0..18]}..." %></p>
                   </div>
-                    <h2 class="card-trip-pricing"><%= "£#{plant.plant.price_per_clipping}" %></h2>
+                    <h2 class="card-trip-pricing"><%= "#{pretty_amount(plant.plant.price_per_clipping*100)}" %></h2>
                     <% total += plant.plant.price_per_clipping * plant.quantity_purchased %>
                 </div>
                 <div class="listing-container">
                   <p><%= "Plant purchased: #{plant.quantity_purchased}"%></p>
                 </div>
                 <div class="listing-container">
-                  <h2><%= "Total: £#{(plant.plant.price_per_clipping * plant.quantity_purchased).round(2)}"%></h2>
+                  <h2><%= "Total: #{pretty_amount((plant.plant.price_per_clipping * plant.quantity_purchased).round(2)*100)}"%></h2>
                 </div>
               </div>
             <% end %>
         </div>
-          <h3 class="mt-3">Total sales: £<%= total.round(2) %> </h3>
+          <h3 class="mt-3">Total sales: <%= pretty_amount(total.round(2)*100) %> </h3>
       <% end %>
     </div>
 </div>

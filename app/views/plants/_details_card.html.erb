@@ -1,7 +1,9 @@
 <div class="details-card-body" data-controller='purchase-controls'>
   <div class="seller-details">
     <p class='seller'>Posted by: <%= plant.user.first_name %></p>
-    <p>Rating: <%= plant.user.avg_user_rating %></p>
+    <% unless plant.user.avg_user_rating == 0 %>
+      <p>Seller Rating: <%= plant.user.avg_user_rating.round(1) %>/5</p>
+    <% end %>
   </div>
   <hr>
   <div class="plant-details">

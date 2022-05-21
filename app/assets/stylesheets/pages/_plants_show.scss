@@ -19,4 +19,22 @@
 
 .preview_image {
   cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.plant-show-container {
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.show-plants-grid__image-container {
+  margin-right: 20px;
+  padding-top: 24px;
+}
+
+
+.image-preview-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 80px;
 }
