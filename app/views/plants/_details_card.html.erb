@@ -1,7 +1,7 @@
 <div class="details-card-body" data-controller='purchase-controls'>
   <div class="seller-details">
     <p class='seller'>Posted by: <%= plant.user.first_name %></p>
-    <p>Rating: </p>
+    <p>Rating: <%= plant.user.avg_user_rating %></p>
   </div>
   <hr>
   <div class="plant-details">
@@ -19,7 +19,7 @@
     <div class="header">
       <div class="header-row">
         <div class="big-bold" id="price" data-purchase-controls-target="price_per" data-costPer="<%= plant.price_per_clipping %>">
-          £<%= plant.price_per_clipping %>
+          <%= pretty_amount(plant.price_per_clipping*100) %>
         </div>
         <div class="small-light"> / CUTTING</div>
       </div>

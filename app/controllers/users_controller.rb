@@ -46,4 +46,5 @@ class UsersController < ApplicationController
     end
     return sales
   end
+
 end

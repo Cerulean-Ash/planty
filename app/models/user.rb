@@ -12,4 +12,22 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  def avg_user_rating
+    total = 0
+    count = 0
+    self.plants.each do |plant|
+      plant.purchases.each do |purchase|
+        if purchase.review.present?
+          total += purchase.review.rating
+          count += 1
+        end
+      end
+    end
+    if count == 0
+      return 0
+    else
+      return total / count
+    end
+  end
 end
