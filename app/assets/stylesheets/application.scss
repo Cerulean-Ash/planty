@@ -20,6 +20,11 @@ body {
   color: $darkgreen;
 }
 
+.home-wrapper {
+  min-height: calc(100vh - 60px);
+}
+
+
 .btn {
   background-color: $darkgreen !important;
   color: $white;
