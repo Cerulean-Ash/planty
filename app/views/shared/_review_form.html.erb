@@ -1,6 +1,7 @@
-<h2 class="text-center">Leave a review</h2>
+<h2 class="text-center mb-4">Leave a review</h2>
 <%= simple_form_for [purchase, review] do |f| %>
 <%= f.input :comment %>
 <%= f.input :rating, collection: [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]], selected: 1, input_html: {data: {controller: "jquery-bar"}} %>
-<%= f.submit "Submit review" %>
+<%= f.submit "Submit review", class: "btn" %>
+
 <% end %>
