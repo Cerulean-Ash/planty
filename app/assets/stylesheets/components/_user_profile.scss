@@ -42,3 +42,51 @@
   padding-right: 16px;
   padding-bottom: 16px;
 }
+
+#reviews-container {
+  justify-content: flex-start;
+}
+
+.anim-star-1 {
+  animation-name: starry;
+  animation-duration: 1.7s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.anim-star-2 {
+  animation-name: starry;
+  animation-duration: 1.7s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-delay: 0.1s;
+}
+
+.anim-star-3 {
+  animation-name: starry;
+  animation-duration: 1.7s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-delay: 0.2s;
+}
+
+.anim-star-4 {
+  animation-name: starry;
+  animation-duration: 1.7s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-delay: 0.3s;
+}
+
+.anim-star-5 {
+  animation-name: starry;
+  animation-duration: 1.7s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-delay: 0.4s;
+}
+
+@keyframes starry {
+  from {color: white}
+  to {color: rgb(138, 138, 138)}
+}

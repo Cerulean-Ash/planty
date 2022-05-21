@@ -16,12 +16,14 @@
 
   <div class="reviews-container">
     <div class="review-box">
-      <% if @plant.purchases.present? && @plant.purchases.any? {|purchase| purchase.review.present?} %>
+      <% if @plant.purchases.any? {|purchase| purchase.review.present?} %>
         <% @plant.purchases.each do |purchase| %>
-        <% purchase.review.rating.to_i.times do %>
-          <i class="fa-solid fa-star pb-2" style="color: gold"></i>
-        <% end %>
-        <p class="border-bottom border-secondary pb-4"><%= purchase.review.comment %></p>
+          <% if purchase.review.present? %>
+            <% purchase.review.rating.to_i.times do %>
+              <i class="fa-solid fa-star pb-2" style="color: gold"></i>
+            <% end %>
+            <p class="border-bottom border-secondary pb-4"><%= purchase.review.comment %></p>
+          <% end %>
         <% end %>
       <% end %>
     </div>
