@@ -31,6 +31,10 @@ body {
   border-radius: 16;
 }
 
+.btn:hover {
+  color: $light-green;
+}
+
 .h1 {
   color: $darkgreen !important;
   font-size: 30px;
