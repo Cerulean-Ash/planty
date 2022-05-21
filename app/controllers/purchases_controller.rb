@@ -17,7 +17,7 @@ class PurchasesController < ApplicationController
     # @purchase.quantity_purchased = params[:quantity_purchased]
     @purchase.user = current_user
     if @purchase.save
-      redirect_to plant_path(plant, anchor: "btn--add-to-cart")
+      redirect_to plant_path(plant)
       flash[:notice] = "Added to cart!"
     else
       render plant_path(plant)
