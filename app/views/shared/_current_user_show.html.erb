@@ -24,7 +24,6 @@
             <p class="mt-3">You have made no purchases yet. Go buy some plants!</p>
           <% else %>
             <div class = "grid__user_cards">
-<<<<<<< HEAD
               <% @purchases.each do |purchase| %>
                   <div class="card-trip">
                     <% url = purchase.plant.photos.attached? ? cl_image_path(purchase.plant.photos.first.key) : "plant1.jpg" %>
