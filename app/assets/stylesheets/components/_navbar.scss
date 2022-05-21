@@ -22,3 +22,18 @@
 .form_width{
   width: 600px;
 }
+
+@media(max-width: 992px) {
+  .form_width{
+    width: 350px;
+  }
+}
+
+@media(max-width: 768px) {
+  .form_width{
+    width: 200px;
+  }
+  .kill-mx-auto{
+    margin-left: 0 !important;
+  }
+}
