@@ -32,7 +32,7 @@
             <h2><%= plant.title %></h2>
             <p><%= "#{plant.description[0..18]}..." %></p>
           </div>
-          <h2 class="card-trip-pricing"><%= "£#{plant.price_per_clipping}" %></h2>
+          <h2 class="card-trip-pricing"><%= "#{pretty_amount(plant.price_per_clipping*100)}" %></h2>
           <!--<img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />-->
           </div>
         </div>
