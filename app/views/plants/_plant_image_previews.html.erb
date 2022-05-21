@@ -4,7 +4,7 @@
         <a data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%= index %>"><img src="<%= cl_image_path photo.key, crop: :fill, width: 1000, height: 1000 %>" class= "preview_image d-block w-100" alt=""></a>
     <% end %>
   <% else %>
-    <%= image_tag "plant1.jpg", class:"d-block w-100 preview_image" %>
-    <%= image_tag "plant2.jpg", class:"d-block w-100 preview_image" %>
+    <a data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"><%= image_tag "plant1.jpg", class:"d-block w-100 preview_image" %></a>
+    <a data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"><%= image_tag "plant2.jpg", class:"d-block w-100 preview_image"%></a>
   <% end %>
 </div>
