@@ -27,7 +27,7 @@ class User < ApplicationRecord
     if count == 0
       return 0
     else
-      return total / count
+      return total.fdiv(count)
     end
   end
 end
