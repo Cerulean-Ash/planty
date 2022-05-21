@@ -25,7 +25,9 @@
               <%  @other_listings.each do |plant| %>
                 <div class="card-trip">
                   <% url = plant.photos.attached? ? cl_image_path(plant.photos.first.key) : "plant1.jpg" %>
-                  <%= image_tag(url) %>
+                  <%= link_to plant_path(plant) do %>
+                    <%= image_tag(url,:class => "card-img") %>
+                  <% end %>
                   <div class="card-trip-infos">
                     <div>
                       <h2 class="py-2"><%= plant.title %></h2>
