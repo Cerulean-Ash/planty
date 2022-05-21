@@ -1,4 +1,4 @@
-<div class="container pb-8">
+<div class="container pb-4">
  <div class="row justify-content-between">
   <div class="show-plants-grid">
     <div class="show-plants-grid__image-container d-flex flex-column">
@@ -14,7 +14,7 @@
   </div>
   </div>
 
-  <div class="reviews-container">
+  <div class="reviews-container pb-4">
     <div class="review-box">
       <% if @plant.purchases.any? {|purchase| purchase.review.present?} %>
         <% @plant.purchases.each do |purchase| %>
