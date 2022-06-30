@@ -1,5 +1,3 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
-
 # Planty
 
 This is an mvp webstore, written in ruby on rails and hosted on Heroku.
@@ -37,7 +35,7 @@ This app allows users to buy and sell plant cuttings form peopel in there commun
 
 ## Technologies Used
 
-- Rails 6.1.5.1
+- Rails 6.1.5.1 - Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates)
 - Ruby 3.0.3
 - yarn 1.22.17
 - SCSS
