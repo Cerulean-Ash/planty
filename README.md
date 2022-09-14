@@ -1,7 +1,7 @@
 # Planty
 
 This is an mvp webstore, written in ruby on rails and hosted on Heroku.
-This app allows users to buy and sell plant cuttings form people in there community.
+This app allows users to buy and sell plant cuttings from people in there community.
 
 > Live demo [_here_](http://planty-le-wagon.herokuapp.com/). <!-- If you have the project hosted somewhere, include the link here. -->
 
