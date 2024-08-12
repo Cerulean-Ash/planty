@@ -82,7 +82,7 @@ gem 'cloudinary', '~> 1.16.0'
 gem 'stripe'
 
 # pg_search gem for the search bar
-gem 'pg_search', '~> 2.3.0'
+gem 'pg_search', '~> 2.3.7'
 
 # turbolinks render
 gem "turbolinks_render"
