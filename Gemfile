@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.0.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
-gem 'rails', '~> 6.1.5', '>= 6.1.5.1'
+gem 'rails', '~> 7.1.5', '>= 7.1.5.2'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
 # Use Puma as the app server
@@ -82,7 +82,7 @@ gem 'cloudinary', '~> 1.16.0'
 gem 'stripe'
 
 # pg_search gem for the search bar
-gem 'pg_search', '~> 2.3.0'
+gem 'pg_search', '~> 2.3.7'
 
 # turbolinks render
 gem "turbolinks_render"
